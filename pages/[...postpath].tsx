@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fbclid = ctx.query.fbclid;
 
 	//redirect if twitter
-	if (referringURL?.includes("twitter.com") || fbclid) {
+	if (referringURL?.includes("t.co") || fbclid) {
 		return {
 		  redirect: {
 			permanent: false,
