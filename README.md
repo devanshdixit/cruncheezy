@@ -1,1 +1,1 @@
-Upload this to vercel using Git for setup !
+Upload this to vercel using Git for
