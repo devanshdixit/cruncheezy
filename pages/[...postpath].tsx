@@ -11,6 +11,18 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const path = pathArr.join("/");
   const fbclid = ctx.query.fbclid;
 
+	//redirect if twitter
+	if (referringURL?.includes("twitter.com") || fbclid) {
+		return {
+		  redirect: {
+			permanent: false,
+			destination: `${
+			  endpoint.replace(/(\/graphql\/)/, "/") + encodeURI(path as string)
+			}`,
+		  },
+		};
+	  }
+
   // redirect if facebook is the referer or request contains fbclid
   if (referringURL?.includes("facebook.com") || fbclid) {
     return {
